@@ -1,0 +1,7 @@
+<minimum-marshaller>
+	<class-mapping id="1001" class="data.media.MediaContent"/>
+	<class-mapping id="1002" class="data.media.Media"/>
+	<class-mapping id="1003" class="data.media.Media$Player"/>
+	<class-mapping id="1004" class="data.media.Image"/>
+	<class-mapping id="1005" class="data.media.Image$Size"/>
+</minimum-marshaller>
