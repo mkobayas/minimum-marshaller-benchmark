@@ -35,7 +35,7 @@ public class MinimumMarshallerBench {
 	
 	@Benchmark
 	public void t1_marshalling() throws Exception {
-		MinimumMarshaller.marshal(Util.getObject());
+		MinimumMarshaller.marshal(Util.getObject(), 512);
 	}
 
 	@Benchmark
