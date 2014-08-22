@@ -35,7 +35,7 @@ public class MinimumMarshallerBench {
 	
 	@Benchmark
 	public void t1_marshalling() throws Exception {
-		MinimumMarshaller.marshal(Util.getObject(), 512);
+		MinimumMarshaller.marshal(Util.getObject(), binary.length+1);
 	}
 
 	@Benchmark
@@ -46,7 +46,7 @@ public class MinimumMarshallerBench {
 	@Benchmark
 	public void t3_mix() throws Exception {
 		Object o = Util.getObject();
-		byte[] b = MinimumMarshaller.marshal(o);
+		byte[] b = MinimumMarshaller.marshal(o, binary.length+1);
 		MinimumMarshaller.unmarshal(b);
 	}
 }

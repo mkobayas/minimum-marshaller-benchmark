@@ -53,7 +53,7 @@ public class KryoBench {
 	@Benchmark
 	public void t1_marshalling() throws Exception {
 		Kryo kryo = getKryo();
-		Output output = new Output(256, -1);
+		Output output = new Output(binary.length+1, -1);
 		kryo.writeClassAndObject(output, Util.getObject());
 		output.toBytes();
 	}
@@ -72,7 +72,7 @@ public class KryoBench {
 
 		Kryo kryo = getKryo();
 		
-		Output output = new Output(256, -1);
+		Output output = new Output(binary.length+1, -1);
 		Input input = new Input(256);
 		
 		kryo.writeClassAndObject(output, o);

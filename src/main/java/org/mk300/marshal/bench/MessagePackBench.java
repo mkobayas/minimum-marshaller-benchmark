@@ -44,7 +44,7 @@ public class MessagePackBench {
 
 	@Benchmark
 	public void t1_marshalling() throws Exception {
-		BufferPacker packer = msgpack.createBufferPacker();
+		BufferPacker packer = msgpack.createBufferPacker(binary.length+1);
 		packer.write(Util.getObject());
 		packer.toByteArray();
 	}
@@ -60,7 +60,7 @@ public class MessagePackBench {
 	public void t3_mix() throws Exception {
 		Object o = Util.getObject();
 
-		BufferPacker packer = msgpack.createBufferPacker();
+		BufferPacker packer = msgpack.createBufferPacker(binary.length+1);
 		BufferUnpacker unpacker = msgpack.createBufferUnpacker();
 
 		packer.write(o);
