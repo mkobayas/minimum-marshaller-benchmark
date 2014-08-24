@@ -67,8 +67,7 @@ public class KryoThreadLocalBench {
 	@Benchmark
 	public void t2_unmarshalling() throws Exception {
 		Kryo kryo = TL.get();
-		Input input = new Input(256);
-		input.setBuffer(getBinary());
+		Input input = new Input(getBinary());
 		kryo.readClassAndObject(input);
 	}
 
@@ -79,12 +78,11 @@ public class KryoThreadLocalBench {
 		Kryo kryo = TL.get();
 		
 		Output output = new Output(binary.length+1, -1);
-		Input input = new Input(256);
 		
 		kryo.writeClassAndObject(output, o);
 		byte[] b = output.toBytes();
-		
-		input.setBuffer(b);
+
+		Input input = new Input(b);
 		kryo.readClassAndObject(input);
 	}
 }
